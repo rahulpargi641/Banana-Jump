@@ -6,6 +6,7 @@ TagManager:
   tags:
   - ExtraPush
   - Background
+  - NormalPush
   layers:
   - Default
   - TransparentFX
