@@ -34,10 +34,9 @@ public class Player : MonoBehaviour
         {
             rigidbody.velocity = new Vector2(moveSpeed, rigidbody.velocity.y);
         }
-        else if(Input.GetAxisRaw("Horizontal") <0)
+        else if(Input.GetAxisRaw("Horizontal") < 0)
         {
             rigidbody.velocity = new Vector2(-moveSpeed, rigidbody.velocity.y);
-
         }
     }
 
@@ -56,7 +55,7 @@ public class Player : MonoBehaviour
             return;   // Exit from the OnTriggerEnter
         }
 
-        if (collision.tag == "NormalPush")
+        if (collision.tag == "NormalPush")  // banana
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, normalPush);
             collision.gameObject.SetActive(false);
@@ -64,7 +63,7 @@ public class Player : MonoBehaviour
 
         }
 
-        if (collision.tag == "ExtraPush")
+        if (collision.tag == "ExtraPush")  // banana S
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, extraPush);
             collision.gameObject.SetActive(false);
@@ -78,6 +77,14 @@ public class Player : MonoBehaviour
             PlatformSpawner.instance.SpawnPlatforms();
         }
 
+        if(collision.tag=="FallDown" || collision.tag=="Bird")
+        {
+            bPlayerDead = true;
+            // Game Manager
+            GameManager.gameManagerInstance.RestartGame();
+            // Sound Manager
+
+        }
 
     }
 }
