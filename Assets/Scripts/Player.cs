@@ -51,6 +51,8 @@ public class Player : MonoBehaviour
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, extraPush);
             collision.gameObject.SetActive(false);
 
+            SoundManager.soundManager.JumpSoundFX();
+
             // Sound Manager
             return;   // Exit from the OnTriggerEnter
         }
@@ -59,8 +61,10 @@ public class Player : MonoBehaviour
         {
             rigidbody.velocity = new Vector2(rigidbody.velocity.x, normalPush);
             collision.gameObject.SetActive(false);
+            
             pushCount++;
 
+            SoundManager.soundManager.JumpSoundFX();
         }
 
         if (collision.tag == "ExtraPush")  // banana S
@@ -69,22 +73,23 @@ public class Player : MonoBehaviour
             collision.gameObject.SetActive(false);
             pushCount++;
 
+            SoundManager.soundManager.JumpSoundFX();
         }
 
-        if(pushCount==2)
+        if (pushCount==2)
         {
             pushCount = 0;
             PlatformSpawner.instance.SpawnPlatforms();
         }
 
-        if(collision.tag=="FallDown" || collision.tag=="Bird")
+        if (collision.tag == "FallDown" || collision.tag == "Bird")
         {
             bPlayerDead = true;
-            // Game Manager
+
+            SoundManager.soundManager.GameOverFX();
+
             GameManager.gameManagerInstance.RestartGame();
             // Sound Manager
-
         }
-
     }
 }

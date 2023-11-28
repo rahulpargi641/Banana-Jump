@@ -9,11 +9,13 @@ public class CameraFollow : MonoBehaviour
 
     bool bFollowPlayer;
     [SerializeField] float minYTreshold = -2.6f;
+
     // Start is called before the first frame update
     private void Awake()
     {
         target = GameObject.FindGameObjectWithTag("Player").transform;
     }
+
     private void Update()
     {
         FollowPlayer();
@@ -37,8 +39,5 @@ public class CameraFollow : MonoBehaviour
                 transform.position = temp;
             }
         }
-
-        
     }
-
 }

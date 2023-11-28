@@ -23,10 +23,4 @@ public class GameManager : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("GamePlay");
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

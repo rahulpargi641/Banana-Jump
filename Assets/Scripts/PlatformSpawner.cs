@@ -9,6 +9,10 @@ public class PlatformSpawner : MonoBehaviour
     [SerializeField]
     GameObject leftPlatform, rightPlatform;
     [SerializeField] Transform platformParent;
+    [SerializeField] private GameObject bird;
+
+    public float birdY = 5f;
+    private float birdXMin = -2.3f, birdXMax = 2.3f;
 
     public static PlatformSpawner instance;
 
@@ -22,7 +26,7 @@ public class PlatformSpawner : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
-        if(instance==null)
+        if (instance == null)
         {
             instance = this;
         }
@@ -39,10 +43,10 @@ public class PlatformSpawner : MonoBehaviour
         Vector2 temp = transform.position;
         GameObject newPlatform = null;
 
-        for (int i=0;i<spawnCount;i++)
+        for (int i = 0; i < spawnCount; i++)
         {
             temp.y = lastY;
-            if((spawnedPlatforms % 2) == 0)
+            if ((spawnedPlatforms % 2) == 0)
             {
                 temp.x = Random.Range(leftXMin, leftXMax);
                 newPlatform = Instantiate(rightPlatform, temp, Quaternion.identity);
@@ -57,12 +61,26 @@ public class PlatformSpawner : MonoBehaviour
 
             lastY += yTreshold;
             spawnedPlatforms++;
+
+
+            if(Random.Range(0 , 2) > 0 )
+            {
+                SpawnBird();
+            }
         }
     }
 
-    // Update is called once per frame
-    void Update()
+    void SpawnBird()
     {
-        
+        Vector2 temp = transform.position;
+        temp.x = Random.Range(birdXMin, birdXMax);
+        temp.y += birdY;
+
+        GameObject newBird = Instantiate(bird, temp, Quaternion.identity);
+        newBird.transform.parent = platformParent;
     }
 }
+
+
+// Create Score System
+// Change input for android

@@ -6,6 +6,7 @@ public class Platform : MonoBehaviour
 {
     [SerializeField] GameObject banana, bananaS;
     [SerializeField] Transform spawnPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,5 @@ public class Platform : MonoBehaviour
             newBanana = Instantiate(bananaS, spawnPoint.position, Quaternion.identity);
         }
         newBanana.transform.parent = transform; 
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
