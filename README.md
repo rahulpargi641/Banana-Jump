@@ -18,9 +18,6 @@
     - Banana Collection:
         - Collect bananas scattered throughout the game to earn points and achieve high scores.
 
-    - Vibrant Graphics:
-        - Enjoy visually appealing graphics and a colorful game environment.
-
     - Sound Effects and Music:
         - Immersive audio elements to enhance the overall gaming experience.
 
@@ -55,12 +52,12 @@
     - GameManager: Manages the game state, including restarting the game after a delay. It ensures only one
              instance of the GameManager exists throughout the game.
 
-    - PlatformSpawner: Spawns alternating left and right platforms, adjusting their positions vertically. It also
-             has the ability to spawn birds on random platforms.
+    - PlatformSpawner: Spawns alternating left and right platforms, adjusting their positions vertically. It 
+             also has the ability to spawn birds on random platforms.
              
     - Platform: Represents a platform and dynamically instantiates either a regular banana or a special banana 
-             (bananaS) at a designated spawn point when the platform is created. The instantiated banana becomes
-             a child of the platform.
+             at a designated spawn point when the platform is created. The instantiated banana becomes a child
+             of the platform.
 
     - SoundManager: Manages sound effects for jumping and game over events.
     
@@ -70,7 +67,7 @@
 
 ### Play the Game
     - To experience the game firsthand, play it directly by following this playable link:
-[Play in browser(WebGl)](https://rahul-pargi.itch.io/flappy-bird)
+[Play in browser(WebGl)](https://rahul-pargi.itch.io/banana-jump)
  
 
  
