@@ -30,7 +30,6 @@
    ![2](./Screenshots/2.png)
    ![3](./Screenshots/3.png)
    ![4](./Screenshots/4.png)
-   ![5](./Screenshots/5.png)
 
    
 ### Implementation and Game Design
